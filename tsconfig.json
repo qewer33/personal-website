@@ -5,7 +5,7 @@
     "outFile": "./build/build.js",
     "preserveConstEnums": true,
     "removeComments": true,
-    "rootDir": "./sketch/",
+    "rootDirs": ["./sketch/", "./assets/"],
     "sourceMap": true,
     "target": "es5",
     "moduleResolution": "node"
