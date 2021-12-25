@@ -1,9 +1,11 @@
 let canvas:any
+let delta:number = 0
 
 let animPaused = false;
-let animSpeed:number = 0.01;
-let spawnTime:number = 0.1;
-let colorTime:number = 200;
+const initialAnimSpeed:number = 0.008;
+let animSpeed:number = initialAnimSpeed;
+const spawnTime:number = 0.14;
+const colorTime:number = 200;
 
 let rects:Array<AnimatedRectangle> = Array<AnimatedRectangle>();
 
@@ -17,6 +19,8 @@ function setup() {
 }
 
 function draw() {
+    delta = 60/frameRate()
+    animSpeed = delta*initialAnimSpeed;
     animPaused = !focused;
 
     background("#20212b");
