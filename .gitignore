@@ -1,0 +1,7 @@
+node_modules/
+.vscode/
+**/*.js
+**/*.js.map
+!build/build.js
+.directory
+deploy.sh
