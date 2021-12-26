@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "module": "none",
-    "noImplicitAny": true,
+    // "noImplicitAny": true,
     "outFile": "./build/build.js",
     "preserveConstEnums": true,
     "removeComments": true,

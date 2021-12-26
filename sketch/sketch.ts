@@ -1,74 +1,37 @@
-let canvas:any
-let delta:number = 0
+let canvas;
 
-let animPaused = false;
-const initialAnimSpeed:number = 0.008;
-let animSpeed:number = initialAnimSpeed;
-const spawnTime:number = 0.14;
-const colorTime:number = 200;
-
-let rects:Array<AnimatedRectangle> = Array<AnimatedRectangle>();
-
-let timer:number = 0;
-let colorTimer:number = 0;
+let system1;
+let system2;
+let system3;
 
 function setup() {
     canvas = createCanvas(windowWidth, windowHeight);
     canvas.position(0, 0);
     canvas.style("z-index", "-1");
+    pixelDensity(1);
+
+    background(0);
+
+    system1 = new ParticleSystem(0, int(random(-100, 100)), 0.1);
+    system2 = new ParticleSystem(0, int(random(-100, 100)), 0.3);
+    system3 = new ParticleSystem(0, int(random(-100, 100)), 0.05);
 }
 
 function draw() {
-    delta = 60/frameRate()
-    animSpeed = delta*initialAnimSpeed;
-    animPaused = !focused;
+    fill(0, random(15, 35));
+    rect(0, 0, width, height);
 
-    background("#20212b");
+    system1.display();
+    system2.display();
+    system3.display();
 
-    if (!animPaused) spawnRects();
-    updateRects();
-
-    fill(255);
+    fill(0);
     textSize(25);
-    if (!animPaused) text(returnRoundedFPS() + " FPS", 20, 40);
-    else text("PAUSED", 20, 40);
+    rect(15, 15, textWidth("60 FPS"), 20);
+    fill(255);
+    text(Math.ceil(frameRate()) + " FPS", 15, 35);
 }
 
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
-}
-
-function spawnRects() {
-    timer++;
-    
-    if (timer > spawnTime*60) {
-        colorMode(HSB, 360, 100, 100);
-        rects.push(new AnimatedRectangle(color(map(colorTimer, 0, colorTime, 0, 360), 100, 100), 45));
-        colorMode(RGB, 255);
-        
-        timer = 0;
-        colorTimer++;
-    }
-    
-    if (colorTimer > colorTime) {
-        colorTimer = 0;
-    }
-}
-
-function updateRects() {
-    for (let i:number = 0; i < rects.length; i++) {
-        rects[i].display();
-            
-        if (rects[i].scale > ((min(width, height) === height) ? 3 : 1.5)) {
-            rects.splice(i, 1);
-        }
-    }
-}
-
-function returnRoundedFPS() {
-    if (frameRate() < 60 && frameRate() > 55) {
-        return 60;
-    } else {
-        return Math.ceil(frameRate());
-    }
 }
