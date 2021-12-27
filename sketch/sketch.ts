@@ -1,8 +1,8 @@
-let canvas;
+let canvas:any;
 
-let system1;
-let system2;
-let system3;
+let system1:ParticleSystem;
+let system2:ParticleSystem;
+let system3:ParticleSystem;
 
 function setup() {
     canvas = createCanvas(windowWidth, windowHeight);
@@ -26,10 +26,10 @@ function draw() {
     system3.display();
 
     fill(0);
-    textSize(25);
-    rect(15, 15, textWidth("60 FPS"), 20);
+    textSize(15);
+    rect(15, 13, textWidth("60 FPS"), 15);
     fill(255);
-    text(Math.ceil(frameRate()) + " FPS", 15, 35);
+    text(Math.ceil(frameRate()) + " FPS", 15, 25);
 }
 
 function windowResized() {

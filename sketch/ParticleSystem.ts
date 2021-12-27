@@ -1,17 +1,17 @@
 class ParticleSystem {
 
-    particles = [];
+    particles:Array<Particle> = [];
 
-    particleXOff;
-    particleYOff;
+    particleXOff:number;
+    particleYOff:number;
 
     spawnSeconds = 0.1;
     spawnTimer = 0;
 
     hue = 0;
-    hueIncrement;
+    hueIncrement:number;
 
-    constructor(particleXOff1, particleYOff1, hueIncrement1) {
+    constructor(particleXOff1:number, particleYOff1:number, hueIncrement1:number) {
         this.particleXOff = particleXOff1;
         this.particleYOff = particleYOff1;
         this.hueIncrement = hueIncrement1;

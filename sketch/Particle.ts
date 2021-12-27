@@ -1,16 +1,16 @@
 class Particle {
-    x;
-    y;
-    startX;
-    startY;
-    d;
-    opacity = 0;
+    x:number;
+    y:number;
+    startX:number;
+    startY:number;
+    d:number;
+    opacity:number = 0;
     c:p5.Color = color(255, 0, 0);
-    off;
-    increment;
-    initialNoise;
+    off:number;
+    increment:number;
+    initialNoise:number;
 
-    constructor(x1, y1) {
+    constructor(x1:number, y1:number) {
         this.x = x1;
         this.y = y1;
         this.startX = this.x;

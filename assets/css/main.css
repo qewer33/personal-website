@@ -32,6 +32,12 @@ body {
     scroll-snap-align: start;
 }
 
+#avatar-image {
+    width: 200px;
+    border-radius: 50%;
+    border: solid white 4px;
+}
+
 .section-header {
     color: white;
     text-align: center;
@@ -41,10 +47,11 @@ body {
 }
 
 .section-description {
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.7);
     text-align: center;
     font-family: 'Quicksand', sans-serif;
     font-size: 28px;
+    margin-bottom: 35px;
 }
 
 .section-bottom-header {
@@ -52,5 +59,59 @@ body {
     text-align: center;
     font-family: 'Quicksand', sans-serif;
     font-size: 35px;
-    margin-top: 30px;
+}
+
+#portfolio-cards-container {
+    display: flex;
+}
+
+.portfolio-card {
+    width: 300px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    transition: transform 250ms, background-color 200ms;
+}
+
+.portfolio-card:hover img {
+    opacity: 100%;
+}
+
+.portfolio-card:hover {
+    transform: translate(0px, -10px);
+     background-color: rgba(50, 50, 50, 0.8);
+}
+
+.portfolio-card-image-container {
+    width: 300px;
+    height: 150px;
+    border-radius: 8px 8px 0px 0px;
+    overflow: hidden;
+}
+
+.portfolio-card-image {
+    width: 300px;
+    transform: translate(0px, -65px);
+    opacity: 80%;
+    transition: opacity 200ms;
+}
+
+.portfolio-card-header {
+    color: white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.portfolio-card-description {
+    margin: 10px;
+    color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 20px;
 }
