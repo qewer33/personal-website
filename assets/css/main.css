@@ -61,6 +61,37 @@ body {
     font-size: 35px;
 }
 
+.section-images-container {
+    display: flex;
+}
+
+.section-images-container a img {
+    margin: 10px;
+    opacity: 65%;
+    transition: opacity 200ms;
+}
+
+.section-images-container a img:hover {
+    opacity: 100%;
+}
+
+#discord-image {
+    position: relative;
+}
+
+#discord-image:hover::after {
+    content: "Qewer#8693 on Discord!";
+    position: absolute;
+    top: 70px;
+    left: -50px;
+    width: 200px;
+    color: #dcdcdc;
+    background-color: transparent;
+    border-radius: 8px;
+    padding: 8px;
+    z-index: 1;
+}
+
 #portfolio-cards-container {
     display: flex;
 }
@@ -69,6 +100,8 @@ body {
     width: 300px;
     height: 400px;
     display: flex;
+    margin-right: 20px;
+    margin-left: 20px;
     flex-direction: column;
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 8px;
