@@ -19,6 +19,8 @@ body {
     scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
+    scroll-margin: 0;
+    scroll-padding: 0;
 }
 
 .section {
@@ -30,6 +32,9 @@ body {
     align-items: center;
     justify-content: center;
     scroll-snap-align: start;
+    scroll-snap-stop: always;
+    scroll-margin: 0;
+    scroll-padding: 0;
 }
 
 #avatar-image {
@@ -90,6 +95,8 @@ body {
     border-radius: 8px;
     padding: 8px;
     z-index: 1;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 15px;
 }
 
 #portfolio-cards-container {

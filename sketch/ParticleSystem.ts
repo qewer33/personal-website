@@ -5,10 +5,10 @@ class ParticleSystem {
     particleXOff:number;
     particleYOff:number;
 
-    spawnSeconds = 0.1;
-    spawnTimer = 0;
+    spawnSeconds:number = 0.1;
+    spawnTimer:number = 0;
 
-    hue = 0;
+    hue:number = 0;
     hueIncrement:number;
 
     constructor(particleXOff1:number, particleYOff1:number, hueIncrement1:number) {
