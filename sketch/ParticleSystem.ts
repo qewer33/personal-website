@@ -1,5 +1,7 @@
 class ParticleSystem {
 
+    p:p5;
+
     particles:Array<Particle> = [];
 
     particleXOff:number;
@@ -11,7 +13,8 @@ class ParticleSystem {
     hue:number = 0;
     hueIncrement:number;
 
-    constructor(particleXOff1:number, particleYOff1:number, hueIncrement1:number) {
+    constructor(p1:p5, particleXOff1:number, particleYOff1:number, hueIncrement1:number) {
+        this.p = p1;
         this.particleXOff = particleXOff1;
         this.particleYOff = particleYOff1;
         this.hueIncrement = hueIncrement1;
@@ -26,24 +29,24 @@ class ParticleSystem {
         this.spawnTimer++;
 
         if (this.spawnTimer > 60 * this.spawnSeconds) {
-            this.particles.push(new Particle(this.particleXOff, height / 2 + this.particleYOff));
+            this.particles.push(new Particle(this.p, this.particleXOff, this.p.height / 2 + this.particleYOff));
             this.spawnTimer = 0;
         }
     }
 
     updateParticles() {
-        colorMode(HSB, 360, 100, 100);
+        this.p.colorMode(this.p.HSB, 360, 100, 100);
 
         this.hue += this.hueIncrement;
         if (this.hue > 360) this.hue = 0;
 
         for (let i = 0; i < this.particles.length; i++) {
             this.particles[i].display();
-            this.particles[i].c = color(this.hue, 100, 100, this.particles[i].opacity);
+            this.particles[i].c = this.p.color(this.hue, 100, 100, this.particles[i].opacity);
 
-            if (this.particles[i].x > width) this.particles.splice(i, 1);
+            if (this.particles[i].x > this.p.width) this.particles.splice(i, 1);
         }
 
-        colorMode(RGB, 255);
+        this.p.colorMode(this.p.RGB, 255);
     }
 }

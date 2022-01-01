@@ -16,11 +16,12 @@ body {
     flex-direction: column;
     background-color: rgba(0, 0, 0, 0.5);
     overflow-y: auto;
-    scroll-snap-type: y mandatory;
+
+    /*scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
     scroll-margin: 0;
-    scroll-padding: 0;
+    scroll-padding: 0;*/
 }
 
 .section {
@@ -31,10 +32,11 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    scroll-snap-align: start;
+
+    /*scroll-snap-align: center;
     scroll-snap-stop: always;
     scroll-margin: 0;
-    scroll-padding: 0;
+    scroll-padding: 0;*/
 }
 
 #avatar-image {
@@ -80,23 +82,24 @@ body {
     opacity: 100%;
 }
 
-#discord-image {
-    position: relative;
+.section-footer {
+    display: flex;
+    margin-top: 20px;
+    color: #ffffff;
+    opacity: 50%;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 20px;
+    text-decoration: none;
+    transition: opacity 200ms;
 }
 
-#discord-image:hover::after {
-    content: "Qewer#8693 on Discord!";
-    position: absolute;
-    top: 70px;
-    left: -50px;
-    width: 200px;
-    color: #dcdcdc;
-    background-color: transparent;
-    border-radius: 8px;
-    padding: 8px;
-    z-index: 1;
-    font-family: 'Quicksand', sans-serif;
-    font-size: 15px;
+.section-footer:hover {
+    opacity: 100%;
+}
+
+.section-footer img {
+    width: 20px;
+    margin-right: 10px;
 }
 
 #portfolio-cards-container {
@@ -154,4 +157,23 @@ body {
     text-align: center;
     font-family: 'Quicksand', sans-serif;
     font-size: 20px;
+}
+
+#discord-image {
+    position: relative;
+}
+
+#discord-image:hover::after {
+    content: "Qewer#8693 on Discord!";
+    position: absolute;
+    top: 70px;
+    left: -50px;
+    width: 200px;
+    color: #dcdcdc;
+    background-color: transparent;
+    border-radius: 8px;
+    padding: 8px;
+    z-index: 1;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 15px;
 }

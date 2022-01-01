@@ -1,37 +1,43 @@
-let canvas:any;
+let sketch = (p: p5) => {
 
-let system1:ParticleSystem;
-let system2:ParticleSystem;
-let system3:ParticleSystem;
+    this.canvas;
 
-function setup() {
-    canvas = createCanvas(windowWidth, windowHeight);
-    canvas.position(0, 0);
-    canvas.style("z-index", "-1");
-    pixelDensity(1);
+    this.system1;
+    this.system2;
+    this.system3;
 
-    background(0);
+    p.setup = () => {
+        this.canvas = p.createCanvas(p.windowWidth, p.windowHeight);
+        this.canvas.position(0, 0);
+        this.canvas.style("z-index", "-1");
+        p.pixelDensity(1);
 
-    system1 = new ParticleSystem(0, int(random(-100, 100)), 0.1);
-    system2 = new ParticleSystem(0, int(random(-100, 100)), 0.3);
-    system3 = new ParticleSystem(0, int(random(-100, 100)), 0.05);
-}
+        p.background(0);
 
-function draw() {
-    fill(0, random(15, 35));
-    rect(0, 0, width, height);
+        this.system1 = new ParticleSystem(p, 0, Math.ceil(p.random(-100, 100)), 0.1);
+        this.system2 = new ParticleSystem(p, 0, Math.ceil(p.random(-100, 100)), 0.3);
+        this.system3 = new ParticleSystem(p, 0, Math.ceil(p.random(-100, 100)), 0.05);
+    }
 
-    system1.display();
-    system2.display();
-    system3.display();
+    p.draw = () => {
+        p.fill(0, p.random(15, 35));
+        p.rect(0, 0, p.width, p.height);
 
-    fill(0);
-    textSize(15);
-    rect(15, 13, textWidth("60 FPS"), 15);
-    fill(255);
-    text(Math.ceil(frameRate()) + " FPS", 15, 25);
-}
+        this.system1.display();
+        this.system2.display();
+        this.system3.display();
 
-function windowResized() {
-    resizeCanvas(windowWidth, windowHeight);
-}
+        p.fill(0);
+        p.textSize(15);
+        p.rect(15, 13, p.textWidth("60 FPS"), 15);
+        p.fill(255);
+        p.text(Math.ceil(p.frameRate()) + " FPS", 15, 25);
+    }
+
+    p.windowResized = () => {
+        p.resizeCanvas(p.windowWidth, p.windowHeight);
+    }
+
+};
+
+new p5(sketch);
