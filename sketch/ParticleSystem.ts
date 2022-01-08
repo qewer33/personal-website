@@ -11,13 +11,14 @@ class ParticleSystem {
     spawnTimer:number = 0;
 
     hue:number = 0;
-    hueIncrement:number;
+    hueOffset:number;
 
-    constructor(p1:p5, particleXOff1:number, particleYOff1:number, hueIncrement1:number) {
+    constructor(p1:p5, particleXOff1:number, particleYOff1:number, hueOffset1:number) {
         this.p = p1;
         this.particleXOff = particleXOff1;
         this.particleYOff = particleYOff1;
-        this.hueIncrement = hueIncrement1;
+        this.hueOffset = hueOffset1;
+        this.hue = this.hueOffset;
     }
 
     display() {
@@ -39,11 +40,11 @@ class ParticleSystem {
         this.p.colorMode(this.p.HSB, 360, 100, 100);
 
         this.hue += 0.15;
-        if (this.hue > 360) this.hue = 0;
+        if (this.hue > 360 + this.hueOffset) this.hue = 0;
 
         for (let i = 0; i < this.particles.length; i++) {
             this.particles[i].display();
-            this.particles[i].c = this.p.color(this.p.map(this.hue - this.hueIncrement, -this.hueIncrement, 360-this.hueIncrement, 0, 360), 70, 100, this.particles[i].opacity);
+            this.particles[i].c = this.p.color(this.hue - this.hueOffset, 70, 100, this.particles[i].opacity);
 
             if (this.particles[i].x > this.p.width) this.particles.splice(i, 1);
         }
