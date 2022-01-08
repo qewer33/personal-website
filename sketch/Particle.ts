@@ -19,7 +19,7 @@ class Particle {
         this.y = y1;
         this.startX = this.x;
         this.startY = this.y;
-        this.d = Math.ceil(this.p.random(1, 11));
+        this.d = Math.ceil(this.p.random(1, 20));
         this.c = this.p.color(255, 0, 0);
         this.off = this.y;
         this.increment = this.p.random(0.0005, 0.0015);
@@ -31,7 +31,7 @@ class Particle {
 
         this.p.fill(this.c);
         this.p.noStroke();
-        this.p.ellipse(this.x, this.y, this.d, this.d);
+        this.p.rect(this.x, this.y, this.d, this.d);
     }
 
     move() {

@@ -7,7 +7,7 @@ class ParticleSystem {
     particleXOff:number;
     particleYOff:number;
 
-    spawnSeconds:number = 0.1;
+    spawnSeconds:number = 0.3;
     spawnTimer:number = 0;
 
     hue:number = 0;
@@ -30,6 +30,7 @@ class ParticleSystem {
 
         if (this.spawnTimer > 60 * this.spawnSeconds) {
             this.particles.push(new Particle(this.p, this.particleXOff, this.p.height / 2 + this.particleYOff));
+            this.particles[this.particles.length-1].c = this.p.color(this.hue, 80, 100, this.particles[this.particles.length-1].opacity);
             this.spawnTimer = 0;
         }
     }
@@ -42,7 +43,7 @@ class ParticleSystem {
 
         for (let i = 0; i < this.particles.length; i++) {
             this.particles[i].display();
-            this.particles[i].c = this.p.color(this.hue, 100, 100, this.particles[i].opacity);
+            this.particles[i].c = this.p.color(this.hue, 70, 100, this.particles[i].opacity);
 
             if (this.particles[i].x > this.p.width) this.particles.splice(i, 1);
         }

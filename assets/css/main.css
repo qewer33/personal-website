@@ -1,4 +1,12 @@
 @import "fonts.css";
+@import "scrollbar.css";
+
+:root {
+    --main-font: "JetBrains Mono";
+    --foreground: white;
+    --foreground-dimmed: rgba(255, 255, 255, 0.5);
+    --accent: #2f66ff;
+}
 
 * {
     padding: 0px;
@@ -24,6 +32,54 @@ body {
     scroll-padding: 0;*/
 }
 
+#home-section {
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    /*scroll-snap-align: center;
+    scroll-snap-stop: always;
+    scroll-margin: 0;
+    scroll-padding: 0;*/
+}
+
+#home-text-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+    margin-top: -10px;
+}
+
+#home-header {
+    color: var(--foreground);
+    font-family: var(--main-font), sans-serif;
+    font-size: 70px;
+    font-weight: bold;
+}
+
+#home-description {
+    color: rgba(255, 255, 255, 0.7);
+    font-family: var(--main-font), sans-serif;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+#home-bottom-header {
+    color: var(--foreground);
+    font-family: var(--main-font), sans-serif;
+    font-size: 30px;
+    inline-size: 600px;
+    overflow-wrap: break-word;
+}
+
+#avatar-image {
+    width: 200px;
+    border: solid var(--foreground) 4px;
+}
+
 .section {
     width: 100%;
     height: 100%;
@@ -32,23 +88,16 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
     /*scroll-snap-align: center;
     scroll-snap-stop: always;
     scroll-margin: 0;
     scroll-padding: 0;*/
 }
 
-#avatar-image {
-    width: 200px;
-    border-radius: 50%;
-    border: solid white 4px;
-}
-
 .section-header {
-    color: white;
+    color: var(--foreground);
     text-align: center;
-    font-family: 'Quicksand', sans-serif;
+    font-family: var(--main-font), sans-serif;
     font-size: 80px;
     font-weight: bold;
 }
@@ -56,15 +105,15 @@ body {
 .section-description {
     color: rgba(255, 255, 255, 0.7);
     text-align: center;
-    font-family: 'Quicksand', sans-serif;
+    font-family: var(--main-font), sans-serif;
     font-size: 28px;
     margin-bottom: 35px;
 }
 
 .section-bottom-header {
-    color: white;
+    color: var(--foreground);
     text-align: center;
-    font-family: 'Quicksand', sans-serif;
+    font-family: var(--main-font), sans-serif;
     font-size: 35px;
 }
 
@@ -85,9 +134,9 @@ body {
 .section-footer {
     display: flex;
     margin-top: 20px;
-    color: #ffffff;
+    color: var(--foreground);
     opacity: 50%;
-    font-family: 'Quicksand', sans-serif;
+    font-family: var(--main-font), sans-serif;
     font-size: 20px;
     text-decoration: none;
     transition: opacity 200ms;
@@ -113,10 +162,10 @@ body {
     margin-right: 20px;
     margin-left: 20px;
     flex-direction: column;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    transition: transform 250ms, background-color 200ms;
-    backdrop-filter: blur(8px);
+    background-color: rgba(255, 255, 255, 0.05);
+    border: solid 3px var(--foreground-dimmed);
+    transition: transform 250ms, background-color 200ms, border 200ms;
+    backdrop-filter: blur(4px);
 }
 
 .portfolio-card:hover img {
@@ -125,13 +174,13 @@ body {
 
 .portfolio-card:hover {
     transform: translate(0px, -10px);
-     background-color: rgba(50, 50, 50, 0.8);
+    background-color: rgba(50, 50, 50, 0.8);
+    border: solid 4px var(--foreground);
 }
 
 .portfolio-card-image-container {
     width: 300px;
     height: 150px;
-    border-radius: 8px 8px 0px 0px;
     overflow: hidden;
 }
 
@@ -143,21 +192,21 @@ body {
 }
 
 .portfolio-card-header {
-    color: white;
+    color: var(--foreground);
     margin-top: 10px;
     margin-bottom: 10px;
     text-align: center;
-    font-family: 'Quicksand', sans-serif;
+    font-family: var(--main-font), sans-serif;
     font-size: 30px;
     font-weight: bold;
 }
 
 .portfolio-card-description {
-    margin: 10px;
+    margin: 15px;
     color: rgba(255, 255, 255, 0.8);
     text-align: center;
-    font-family: 'Quicksand', sans-serif;
-    font-size: 20px;
+    font-family: var(--main-font), sans-serif;
+    font-size: 19px;
 }
 
 #discord-image {
@@ -175,6 +224,6 @@ body {
     border-radius: 8px;
     padding: 8px;
     z-index: 1;
-    font-family: 'Quicksand', sans-serif;
+    font-family: var(--main-font), sans-serif;
     font-size: 15px;
 }
