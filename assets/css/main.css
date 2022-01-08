@@ -24,12 +24,6 @@ body {
     flex-direction: column;
     background-color: rgba(0, 0, 0, 0.5);
     overflow-y: auto;
-
-    /*scroll-snap-type: y mandatory;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    scroll-margin: 0;
-    scroll-padding: 0;*/
 }
 
 #home-section {
@@ -175,7 +169,7 @@ body {
 .portfolio-card:hover {
     transform: translate(0px, -10px);
     background-color: rgba(50, 50, 50, 0.8);
-    border: solid 4px var(--foreground);
+    border: solid 3px var(--foreground);
 }
 
 .portfolio-card-image-container {
@@ -186,7 +180,6 @@ body {
 
 .portfolio-card-image {
     width: 300px;
-    transform: translate(0px, -65px);
     opacity: 80%;
     transition: opacity 200ms;
 }
