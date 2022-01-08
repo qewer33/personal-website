@@ -14,9 +14,9 @@ let sketch = (p: p5) => {
 
         p.background(0);
 
-        this.system1 = new ParticleSystem(p, -200, Math.ceil(p.random(-100, 100)), 0.1);
-        this.system2 = new ParticleSystem(p, -20, Math.ceil(p.random(-100, 100)), 0.3);
-        this.system3 = new ParticleSystem(p, -350, Math.ceil(p.random(-100, 100)), 0.05);
+        this.system1 = new ParticleSystem(p, -200, Math.ceil(p.random(-100, 100)), 0);
+        this.system2 = new ParticleSystem(p, -20, Math.ceil(p.random(-100, 100)), 30);
+        this.system3 = new ParticleSystem(p, -350, Math.ceil(p.random(-100, 100)), 15);
     }
 
     p.draw = () => {
