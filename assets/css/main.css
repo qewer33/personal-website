@@ -113,6 +113,9 @@ body {
 
 .section-images-container {
     display: flex;
+    flex-wrap: wrap;
+    max-width: 70vw;
+    justify-content: center;
 }
 
 .section-images-container a img {
