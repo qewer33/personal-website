@@ -113,6 +113,9 @@ body {
 
 .section-images-container {
     display: flex;
+    flex-wrap: wrap;
+    max-width: 70vw;
+    justify-content: center;
 }
 
 .section-images-container a img {
@@ -147,14 +150,16 @@ body {
 
 #portfolio-cards-container {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 80vw;
 }
 
 .portfolio-card {
     width: 300px;
     height: 400px;
     display: flex;
-    margin-right: 20px;
-    margin-left: 20px;
+    margin: 20px;
     flex-direction: column;
     background-color: rgba(255, 255, 255, 0.05);
     border: solid 3px var(--foreground-dimmed);
